@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Main page
+{% endblock %}
+
+{% block main %}
+    <form action="/" method="get">
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th>Type of transaction</th>
+                    <th>Stock</th>
+                    <th>Price of stock</th>
+                    <th>Number of stocks</th>
+                    <th>Date</th>
+                </tr>
+
+            </thead>
+            <tbody class="table-bordered border-primary">
+                {% for stock in stocks %}
+                    <tr>
+                        <td>{{ stock["type_of_transaction"] }}</td>
+                        <td>{{ stock["share"] }}</td>
+                        <td>{{ stock["price"] }}</td>
+                        <td>{{ stock["number_shares"] }}</td>
+                        <td>{{ stock["date"] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </form>
+{% endblock %}
